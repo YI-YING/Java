@@ -19,13 +19,13 @@ public class CountValue {
         s = scan.nextLine();
         sAttribute = s.split(",");    //第一行就是 Attribute
         
-        //宣告一 List 物件用來儲存 Set 物件
-        List<Set> li = new ArrayList<>();
+        //宣告一 HashSet 陣列用來儲存 HashSet 物件
+        HashSet se[] = new HashSet[sAttribute.length];
 
         //有多少 Attribute 就生成多少個 Set 物件
         //並將其放置 List 物件中
         for (i = 0; i < sAttribute.length; i++)
-           li.add(new HashSet());
+           se[i] = new HashSet();
         
         //一行一行讀入直到資料全部讀完
         while (scan.hasNextLine()) {
@@ -34,7 +34,7 @@ public class CountValue {
             
             //將字串陣列中的的字串各別加到對應 Attribute 的 Set 物件中
             for (i = 0; i < sParts.length; i++)
-                li.get(i).add(sParts[i]);
+                se[i].add(sParts[i]);
         }
         
         //把在各個 Attribute 的 Set 物件的元素總數顯示在螢幕上
@@ -42,7 +42,7 @@ public class CountValue {
         //裡面不能存放重複的值，因此只要將每個字串加入 Set 物件，即可
         //將重複的值去除
         for (i = 0; i < sAttribute.length; i++) 
-            System.out.print(sAttribute[i] + ":" + li.get(i).size() + " ");
+            System.out.print(sAttribute[i] + ":" + se[i].size() + " ");
         
         System.out.println();
         
