@@ -9,15 +9,15 @@ public class CountValue {
         //初始化一個讀檔物件
         FileReader fr = new FileReader(CountValue.class.getResource("Training_Data.csv").getPath());
         
-        //用初始化一個暫存讀檔物件
-        BufferedReader bf = new BufferedReader(fr);
+        //初始化一個 Scanner 物件
+        Scanner scan = new Scanner(fr);
         String s;           //用來存每行字串的變數
         String sParts[];    //用來存以","分割後的字串陣列
-        String sAttribute[];
+        String sAttribute[];//用來存 Attribute 的陣列
         
         //讀入文件第一行，並將其分割成字串陣列
-        s = bf.readLine();
-        sAttribute = s.split(",");
+        s = scan.nextLine();
+        sAttribute = s.split(",");    //第一行就是 Attribute
         
         //宣告一 List 物件用來儲存 Set 物件
         List<Set> li = new ArrayList<>();
@@ -28,7 +28,8 @@ public class CountValue {
            li.add(new HashSet());
         
         //一行一行讀入直到資料全部讀完
-        while ((s = bf.readLine()) != null) {
+        while (scan.hasNextLine()) {
+            s = scan.nextLine();
             sParts = s.split(",");        //將讀到的每一行都以","分割成字串陣列
             
             //將字串陣列中的的字串各別加到對應 Attribute 的 Set 物件中
