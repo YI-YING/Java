@@ -32,6 +32,8 @@ public class HW7_05366016 {
             
             //將字串陣列中的的字串各別加到對應 Attribute 的 HashMap 物件中
             for (i = 0; i < sParts.length; i++) {
+                //如果 key 已經在 HashMap 取出 value
+                //否則將值設為 0
                 int k = (hmp[i].get(sParts[i]) == null) ? 0 : (int)hmp[i].get(sParts[i]);
                 hmp[i].put(sParts[i], ++k);
             }
