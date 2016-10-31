@@ -18,8 +18,8 @@ public class HW8_05366016 {
             tm.put(k, ++v);
         }
         
-        //要求使用者輸入 Treadhold
-        System.out.print("Please enter a threadhold : ");
+        //要求使用者輸入 Threshold
+        System.out.print("Please enter a threshold : ");
         int iInput;
         iInput = scInput.nextInt();
         
@@ -34,7 +34,7 @@ public class HW8_05366016 {
                 temp.add((int)e.getKey());
         }
         
-        //刪除資料筆數比 Threadhold 還少的資料
+        //刪除資料筆數比 Threshold 還少的資料
         Iterator <Integer> itr = temp.iterator();
         while (itr.hasNext()) 
             tm.remove(itr.next());
